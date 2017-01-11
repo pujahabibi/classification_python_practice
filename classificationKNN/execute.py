@@ -1,7 +1,10 @@
 import kNN
+import matplotlib
+import matplotlib.pyplot as plt
 
 group, labels = kNN.createDataSet()
-datingDataMat, datingDataLabels = kNN.file2matrix('datingTestSet.txt')
+datingDataMat, datingLabels = kNN.file2matrix('datingTestSet.txt')
 
-print datingDataMat
-print datingDataLabels[0:20]
+normMat, ranges, minVals = kNN.autoNorm(datingDataMat)
+
+kNN.datingClassTest()
